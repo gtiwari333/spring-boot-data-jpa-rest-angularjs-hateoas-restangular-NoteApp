@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('noteApp', ['ui.router'])
+        .module('noteApp', ['ui.router' , 'restangular'])
         .run(main);
 
     main.$inject = ['$state'];
