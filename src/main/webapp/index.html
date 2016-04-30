@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Note App</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="content/css/main.css">
+
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="noteApp">
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<div ui-view="navbar" ng-cloak></div>
+
+<div class="main well">
+    <div ui-view="content"></div>
+</div>
+
+<div ng-include="'app/layouts/footer/footer.html'"></div>
+
+<!--JS -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="app/app.module.js"></script>
+
+<script src="app/app.state.js"></script>
+
+<!--dashboard-->
+<script src="app/app.dashboard.state.js"></script>
+<script src="app/note/note.dashboard.state.js"></script>
+<script src="app/note/note.dashboard.controller.js"></script>
+<script src="app/person/person.dashboard.state.js"></script>
+<script src="app/person/person.dashboard.controller.js"></script>
+<script src="app/public/public.dashboard.state.js"></script>
+<script src="app/public/public.dashboard.controller.js"></script>
+
+
+<script src="app/home/app.home.state.js"></script>
+</body>
+</html>
