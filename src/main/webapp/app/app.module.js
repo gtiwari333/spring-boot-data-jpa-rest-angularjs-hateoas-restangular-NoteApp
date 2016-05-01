@@ -12,6 +12,6 @@
 
         console.log($state.get());
 
-        $state.go('public-dashboard');
+        $state.go('public');
     }
 })();

@@ -8,15 +8,15 @@
 
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('person-dashboard', {
+        $stateProvider.state('public', {
 
-            parent: 'dashboard',
-            url: "/person-dashboard",
+            parent: 'entity',
+            url: "/public",
             data: {},
             views: {
                 'content@': {
-                    templateUrl: 'app/person/person.dashboard.html',
-                    controller: 'PersonDashboardController',
+                    templateUrl: 'app/public/public.html',
+                    controller: 'PublicController',
                     controllerAs: 'vm'
                 }
             }

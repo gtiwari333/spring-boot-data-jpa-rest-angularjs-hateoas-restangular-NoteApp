@@ -8,7 +8,7 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('dashboard', {
+        $stateProvider.state('entity', {
             abstract: true,
             parent: 'app'
         });

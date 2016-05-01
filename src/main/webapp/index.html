@@ -23,7 +23,7 @@
 
 <div ui-view="navbar" ng-cloak></div>
 
-<div class="main well">
+<div class="main container container-fluid">
     <div ui-view="content"></div>
 </div>
 
@@ -40,18 +40,21 @@
 
 
 <script src="app/app.module.js"></script>
+<script src="app/app.constants.js"></script>
 <script src="app/app.config.restangular.js"></script>
+<script src="app/directives/directive.notification.js"></script>
 
 <script src="app/app.state.js"></script>
-
-<!--dashboard-->
-<script src="app/app.dashboard.state.js"></script>
+<script src="app/app.entity.state.js"></script>
 <script src="app/note/note.dashboard.state.js"></script>
 <script src="app/note/note.dashboard.controller.js"></script>
-<script src="app/person/person.dashboard.state.js"></script>
-<script src="app/person/person.dashboard.controller.js"></script>
-<script src="app/public/public.dashboard.state.js"></script>
-<script src="app/public/public.dashboard.controller.js"></script>
+<script src="app/person/person.state.js"></script>
+<script src="app/person/person.controller.js"></script>
+<script src="app/person/person.detail.controller.js"></script>
+<script src="app/person/person.detail.controller.js"></script>
+
+<script src="app/public/public.state.js"></script>
+<script src="app/public/public.controller.js"></script>
 
 
 <script src="app/home/app.home.state.js"></script>
