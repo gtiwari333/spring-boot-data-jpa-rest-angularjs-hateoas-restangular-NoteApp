@@ -22,7 +22,8 @@
 
         vm.remove = function (person) {
             var personId = person.id;
-            person.remove().then(function () {
+
+            Restangular.one('person', personId).remove().then(function () {
 
                 angular.forEach(vm.persons, function (n, i) {
                     if (n.id == personId) {
@@ -33,8 +34,9 @@
                 });
 
             }, function (resp) {
-                vm.message = {body: "Error when deleting " + personId, type: "error"};
+                vm.message = {body: "Error when deleting " + personId, type: "danger", resp: resp};
             });
+
 
         }
 

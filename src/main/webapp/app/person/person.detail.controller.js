@@ -37,7 +37,7 @@
                 vm.goBack({message: {body: "Saved !", type: "success"}});
 
             }, function (resp) {
-                vm.message = {body: "Error on saving ! " + resp, type: "error"};
+                vm.message = {body: "Error on saving ! " + resp, type: "danger", resp: resp};
             });
 
 

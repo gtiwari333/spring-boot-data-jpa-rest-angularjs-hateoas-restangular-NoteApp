@@ -3,7 +3,7 @@
     <ol class="breadcrumb">
         <li><a ui-sref="public">Home</a></li>
         <li class="active">
-            <span class="form-header">Person</span>
+            <span class="form-header">Note</span>
         </li>
     </ol>
 </h4>
@@ -13,10 +13,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-4 no-padding-left">
-            <button class="btn btn-primary" ui-sref="person.new">
+            <button class="btn btn-primary" ui-sref="note.new">
                 <span class="fa fa-plus"></span>
                     <span>
-                        Add new Person
+                        Add new Note
                     </span>
             </button>
         </div>
@@ -29,51 +29,44 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Active</th>
-            <th>Notes</th>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Description</th>
+            <th>Created Date</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="person in vm.persons">
-            <td>{{person.id}}</td>
-            <td>{{::person.firstName}} {{::person.midName}} {{::person.lastName}}</td>
-            <td>{{::person.email}}</td>
-            <td>{{::person.active}}</td>
+        <tr ng-repeat="note in vm.notes">
+            <td>{{note.id}}</td>
+            <td>{{::note.title}} </td>
+            <td>{{::note.url}}</td>
+            <td>{{::note.description}}</td>
+            <td>{{::note.createdDate}}</td>
+            <td>{{::note.status}}</td>
             <td>
                 <div class="btn-group flex-btn-group-container">
                     <button type="submit"
-                            ui-sref="note({personId:person.id})"
+                            ui-sref="note.detail({id:note.id})"
                             class="btn btn-info btn-sm">
                         <span class="fa fa-eye"></span>
-                        <span class="hidden-xs hidden-sm">View Notes</span>
-                    </button>
-                </div>
-            </td>
-            <td>
-                <div class="btn-group flex-btn-group-container">
-                    <button type="submit"
-                            ui-sref="person.detail({id:person.id})"
-                            class="btn btn-info btn-sm">
-                        <span class="fa fa-eye"></span>
-                        <span class="hidden-xs hidden-sm">View Person</span>
+                        <span class="hidden-xs hidden-sm">View</span>
                     </button>
                     <button type="submit"
-                            ui-sref="person.duplicate({id:person.id})"
+                            ui-sref="note.duplicate({id:note.id})"
                             class="btn btn-info btn-sm">
                         <span class="fa fa-copy"></span>
                         <span class="hidden-xs hidden-sm">Duplicate</span>
                     </button>
                     <button type="submit"
-                            ui-sref="person.edit({id:person.id})"
+                            ui-sref="note.edit({id:note.id})"
                             class="btn btn-primary btn-sm">
                         <span class="fa fa-pencil"></span>
                         <span class="hidden-xs hidden-sm">Edit</span>
                     </button>
                     <button type="submit"
-                            ng-click="vm.remove(person)"
+                            ng-click="vm.remove(note)"
                             class="btn btn-danger btn-sm">
                         <span class="fa fa-remove"></span>
                         <span class="hidden-xs hidden-sm">Delete</span>
