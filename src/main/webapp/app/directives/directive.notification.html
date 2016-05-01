@@ -1,3 +1,7 @@
 <div class="alert-container alert" ng-class="'alert-' + (message.type || 'success')" role="alert">
-    <div>{{message.body}}</div>
+    <div><h3>{{message.body}}</h3></div>
+    <div ng-show="message.resp">
+        <div><h5>{{message.resp.data.status}} : {{message.resp.data.error}}</h5></div>
+        <div><h6>{{message.resp.data.exception}}</h6></div>
+    </div>
 </div>
