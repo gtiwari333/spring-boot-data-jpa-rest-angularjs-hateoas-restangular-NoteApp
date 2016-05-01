@@ -24,23 +24,18 @@
 
         vm.clear = function () {
             vm.note.title = "";
-            vm.note.url = "";
-            vm.note.description = "";
-            vm.note.completedDate = "";
+            vm.note.content = "";
         };
 
-        vm.save = function () {
-
-            console.log(" Saving ... " + personId);
-
+        function saveNote(stayAtPage) {
             Restangular.one("person", personId).get().then(function (person_) {
 
                 vm.note.person = person_._links.self.href; //hateoas :)
-                vm.note.status = "DRAFT";
 
                 NoteService.post(vm.note).then(function () {
-                    vm.goBack({message: {body: "Saved !", type: "success"}});
-
+                    if (!stayAtPage || stayAtPage == undefined) {
+                        vm.goBack({message: {body: "Saved !", type: "success"}});
+                    }
                 }, function (resp) {
                     vm.message = {body: "Error on saving ! ", type: "danger", resp: resp};
                 });
@@ -48,10 +43,21 @@
             }, function (resp) {
                 vm.message = {body: "Error on saving ! ", type: "danger", resp: resp};
             });
+        }
 
+        var incrementViewCount = function () {
+            console.log(" incrementing view count  ... ");
 
-            //Restangular.one("person", personId).post("note", vm.note);
+            vm.note.viewCount = vm.note.viewCount + 1;
+            saveNote(true);
 
+        };
+
+        vm.save = function () {
+
+            console.log(" Saving ... ");
+
+            saveNote();
 
         };
 
@@ -75,8 +81,17 @@
                     if (vm.mode == AppConstants.DUPLICATE) {
                         vm.note = angular.copy(note_);
                         vm.note.id = "";
+                        vm.note.viewCount = 0;
+                        vm.note.createdDate = null;
+                        vm.note.active = true;
+
                     } else {
                         vm.note = note_;
+                    }
+
+                    if (vm.mode == AppConstants.VIEW) {
+                        /* increment view count */
+                        incrementViewCount();
                     }
 
                     console.log(vm.note);

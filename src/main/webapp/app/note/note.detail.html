@@ -36,40 +36,28 @@
             </div>
             <div class="col-sm-4 col-lg-4">
                 <div class="form-group">
-                    <label class="font-normal">URL</label>
+                    <label class="font-normal">Content<span class="required">*</span></label>
 
                     <div class="input-group">
-                        <input type="text" ng-readonly="!vm.editable" ng-model="vm.note.url"
-                               class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-4">
-                <div class="form-group">
-                    <label class="font-normal">Description<span class="required">*</span></label>
-
-                    <div class="input-group">
-                        <textarea ng-readonly="!vm.editable" ng-model="vm.note.description" class="form-control" rows="3"></textarea>
+                        <textarea ng-readonly="!vm.editable" ng-model="vm.note.content" class="form-control" rows="3"></textarea>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-4 col-lg-4">
+            <div class="col-sm-4 col-lg-4" ng-hide="vm.mode != 'VIEW'">
                 <div class="form-group">
                     <label class="font-normal">Created Date <span class="required">*</span></label>
 
                     <div class="input-group">
-                        <input type="text" ng-readonly="!vm.editable" ng-model="vm.note.createdDate" class="form-control">
+                        <input type="text" ng-readonly="!vm.editable" ng-model="vm.note.createdDate  | date : 'dd/MM/yyyy'" class="form-control">
                     </div>
                 </div>
             </div>
         </div>
         <hr/>
     </div>
-
-    {{vm.note.notes}}
 
     <div class="form-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.goBack()">

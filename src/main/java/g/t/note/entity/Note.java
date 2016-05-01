@@ -1,6 +1,7 @@
 package g.t.note.entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,35 +12,22 @@ import java.util.Date;
 @Data
 public class Note {
 
-    public enum Status {
-        DRAFT, NOT_COMPLETED, COMPLETED, ARCHIVED;
-
-        @Override
-        public String toString() {
-            return name();
-        }
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String title;
 
-    @Column(unique = true)
-    @NotNull
-    private String url;
+    private String content;
 
-    private String description;
-
-    private Date createdDate;
+    @CreatedDate
+    private Date createdDate = new Date();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private Person person;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private Long viewCount;
 
     @Override
     public boolean equals(Object obj) {
