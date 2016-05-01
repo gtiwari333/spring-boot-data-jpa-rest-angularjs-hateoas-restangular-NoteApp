@@ -21,6 +21,12 @@
 
             if (operation == 'getList' && '_embedded' in data) {
                 var resp = data._embedded[what + 's'];
+
+                if (resp == undefined) {
+                    /* For case like : /api/person/44/blogs , 's' is already expected by restangular, so try without 's' */
+                    resp = data._embedded[what];
+                }
+
                 resp._links = data._links;
 
                 angular.forEach(resp, function (record) {
