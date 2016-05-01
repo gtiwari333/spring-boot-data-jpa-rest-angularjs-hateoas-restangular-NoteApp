@@ -59,14 +59,16 @@
                 vm.person = {};
             } else {
 
-                var person_ = PersonService.get(personId).$object;
-                if (vm.mode == AppConstants.DUPLICATE) {
-                    vm.person = angular.copy(person_);
-                    vm.person.id = "";
-                } else {
-                    vm.person = person_;
-                }
+                Restangular.one("person", personId).get().then(function (person_) {
+                    if (vm.mode == AppConstants.DUPLICATE) {
+                        vm.person = angular.copy(person_);
+                        vm.person.id = "";
+                    } else {
+                        vm.person = person_;
+                    }
 
+                    console.log(vm.person);
+                });
             }
         }
 

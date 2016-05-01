@@ -44,6 +44,23 @@
                     }
                 }
             })
+            .state('person.duplicate', {
+                parent: 'person',
+                url: '/{id}/duplicate',
+                data: {
+                    mode: AppConstants.DUPLICATE
+                },
+                params : {
+                    message : {}
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/person/person.detail.html',
+                        controller: 'PersonDetailController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('person.new', {
                 parent: 'person',
                 url: '/new',

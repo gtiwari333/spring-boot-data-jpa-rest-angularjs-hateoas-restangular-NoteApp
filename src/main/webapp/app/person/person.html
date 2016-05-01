@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-xs-4 no-padding-left">
             <button class="btn btn-primary" ui-sref="person.new">
-                <span class="glyphicon glyphicon-plus"></span>
+                <span class="fa fa-plus"></span>
                     <span>
                         Add new Person
                     </span>
@@ -48,19 +48,25 @@
                     <button type="submit"
                             ui-sref="person.detail({id:person.id})"
                             class="btn btn-info btn-sm">
-                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <span class="fa fa-eye"></span>
                         <span class="hidden-xs hidden-sm">View</span>
+                    </button>
+                    <button type="submit"
+                            ui-sref="person.duplicate({id:person.id})"
+                            class="btn btn-info btn-sm">
+                        <span class="fa fa-copy"></span>
+                        <span class="hidden-xs hidden-sm">Duplicate</span>
                     </button>
                     <button type="submit"
                             ui-sref="person.edit({id:person.id})"
                             class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="fa fa-pencil"></span>
                         <span class="hidden-xs hidden-sm">Edit</span>
                     </button>
                     <button type="submit"
                             ng-click="vm.remove(person)"
                             class="btn btn-danger btn-sm">
-                        <span class="glyphicon glyphicon-remove-circle"></span>
+                        <span class="fa fa-remove"></span>
                         <span class="hidden-xs hidden-sm">Delete</span>
                     </button>
                 </div>
