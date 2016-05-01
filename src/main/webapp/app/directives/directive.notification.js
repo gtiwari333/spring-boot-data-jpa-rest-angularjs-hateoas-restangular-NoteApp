@@ -10,13 +10,13 @@
             restrict: 'E',
             replace: true,
             scope: {
-                message: '=',
-                type: '@'
+                message: '='
             },
             templateUrl: 'app/directives/directive.notification.html',
             link: function (scope, element, attrs) {
                 $timeout(function () {
                     element.remove();
+                    scope.message = {};
                 }, 4000);
             }
         }
