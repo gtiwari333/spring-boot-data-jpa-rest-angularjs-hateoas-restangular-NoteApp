@@ -2,7 +2,8 @@
 
     <ol class="breadcrumb">
         <li><a ui-sref="public">Home</a></li>
-        <li><a ui-sref="note">Note</a></li>
+        <li><a  ui-sref="person.detail({id:vm.person.id})">Person : {{vm.person.firstName}} {{vm.person.midName}} {{vm.person.lastName}}</a></li>
+        <li><a ui-sref="note">Notes</a></li>
         <li class="active">
         <span class="form-header" ng-show="vm.mode == 'CREATE'">
             Create A New Note

@@ -13,6 +13,7 @@
         vm.note = {};
         vm.editable = false;
         vm.message = {};
+        vm.person = {};
 
         var noteId = $stateParams.id;
         var personId = $stateParams.personId;
@@ -100,6 +101,15 @@
                     console.log(vm.note);
                 });
             }
+
+
+            /* init person */
+            Restangular.one("person", personId).get().then(function (person_) {
+                vm.person = person_;
+            }, function (resp) {
+                vm.message = {body: "Error on retrieving person " + personId, type: "danger", resp: resp};
+            });
+
         }
 
 

@@ -22,6 +22,20 @@
 
 <notification ng-if="vm.message.body" message="vm.message"></notification>
 
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-4 col-lg-4">
+            <div class="btn-group flex-btn-group-container">
+                <button type="submit"
+                        ui-sref="note({personId:vm.person.id})"
+                        class="btn btn-info btn-sm">
+                    <span class="fa fa-eye"></span>
+                    <span>View Notes</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <form name="form" role="form" novalidate>
     <div class="modal-body">
         <div class="row">
