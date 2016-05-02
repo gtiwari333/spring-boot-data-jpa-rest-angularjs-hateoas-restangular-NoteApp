@@ -32,6 +32,10 @@
 
                 vm.note.person = person_._links.self.href; //hateoas :)
 
+                if (vm.mode == AppConstants.DUPLICATE) {
+                    vm.note.createdDate = new Date();
+                }
+
                 NoteService.post(vm.note).then(function () {
                     if (!stayAtPage || stayAtPage == undefined) {
                         vm.goBack({message: {body: "Saved !", type: "success"}});

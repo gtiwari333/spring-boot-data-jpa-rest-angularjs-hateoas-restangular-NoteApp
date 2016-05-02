@@ -27,7 +27,7 @@ public class Note {
     @NotNull
     private Person person;
 
-    private Long viewCount;
+    private Long viewCount = 0l;
 
     @Override
     public boolean equals(Object obj) {

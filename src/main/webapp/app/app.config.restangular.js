@@ -34,6 +34,22 @@
                 });
 
                 return resp;
+            } else if (url.indexOf('/search/') > -1 && '_links' in data) {
+
+                /* for case like: api/person/search/findTop3PosterBasedOnPostCount */
+
+                var what_ = url.replace(what, '').replace(BASE_URL, '').replace('/', '');
+
+                resp = data._embedded[what_ + 's'];
+
+                resp._links = {};
+                resp._links = data._links;
+
+                angular.forEach(resp, function (record) {
+                    record.id = record._links.self.href.substr(record._links.self.href.lastIndexOf("/") + 1);
+                });
+
+                return resp;
             } else if (data != undefined && data != "" && '_links' in data) {
                 data.id = data._links.self.href.substr(data._links.self.href.lastIndexOf("/") + 1);
                 return data;
