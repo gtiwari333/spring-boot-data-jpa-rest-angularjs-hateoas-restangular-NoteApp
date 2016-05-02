@@ -87,7 +87,6 @@
                         vm.note.id = "";
                         vm.note.viewCount = 0;
                         vm.note.createdDate = null;
-                        vm.note.active = true;
 
                     } else {
                         vm.note = note_;

@@ -25,24 +25,9 @@ public class Person {
 
     private String email;
 
-    @Column(nullable = false, columnDefinition = "TINYINT", length = 1)
-    private boolean active;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Note> notes;
-
-    public Person() {
-    }
-
-    @PersistenceConstructor
-    public Person(String firstName, String lastName, String midName, Date dateOfBirth, String email) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.midName = midName;
-        this.email = email;
-    }
 
     @Override
     public int hashCode() {
@@ -71,7 +56,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", midName=" + midName + ", email=" + email + ", active=" + active + "]";
+        return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", midName=" + midName + ", email=" + email + "]";
     }
 
 }
