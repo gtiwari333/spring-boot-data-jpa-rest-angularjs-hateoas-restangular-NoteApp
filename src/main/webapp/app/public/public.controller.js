@@ -15,10 +15,10 @@
         var NoteService = Restangular.all('note');
 
         NoteService.customGET("search/findTop6ByOrderByViewCountDesc").then(function (resp) {
-            vm.topFiveViewed = resp;
+            vm.topViewed = resp;
         });
         NoteService.customGET("search/findTop6ByOrderByIdDesc").then(function (resp) {
-            vm.topFive = resp;
+            vm.top = resp;
         });
     }
 })();

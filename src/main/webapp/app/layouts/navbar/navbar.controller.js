@@ -13,10 +13,10 @@
         var PersonService = Restangular.all('person');
 
         PersonService.customGET("search/findTop3PosterBasedOnPostViewCount").then(function (resp) {
-            vm.topFiveViewed = resp;
+            vm.topViewed = resp;
         });
         PersonService.customGET("search/findTop3PosterBasedOnPostCount").then(function (resp) {
-            vm.topFivePersonBasedOnPostCount = resp;
+            vm.topPersonBasedOnPostCount = resp;
         });
     }
 })();
