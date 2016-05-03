@@ -1,11 +1,8 @@
 package g.t.note.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.data.annotation.PersistenceConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -26,7 +23,6 @@ public class Person {
     private String email;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
-    @JsonIgnore
     private Set<Note> notes;
 
     @Override

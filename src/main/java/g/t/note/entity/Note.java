@@ -1,7 +1,9 @@
 package g.t.note.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,6 +28,35 @@ public class Note {
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private Person person;
+
+    @Transient
+    @JsonSerialize
+    Long personId;
+
+    public Long getPersonId() {
+        if (person == null) {
+            return null;
+        }
+
+        return person.getId();
+    }
+
+    @Transient
+    @JsonSerialize
+    String personName;
+
+    public String getPersonName() {
+        if (person == null) {
+            return null;
+        }
+
+        if (StringUtils.isEmpty(person.getMidName())) {
+            return person.getFirstName() + "" + person.getLastName();
+        } else {
+            return person.getFirstName() + " " + person.getMidName() + " " + person.getLastName();
+        }
+
+    }
 
     private Long viewCount = 0l;
 

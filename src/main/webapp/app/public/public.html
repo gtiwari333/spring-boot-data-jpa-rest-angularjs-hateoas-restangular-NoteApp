@@ -1,4 +1,6 @@
 <h1>{{vm.description}} Dashboard</h1>
+<hr/>
+
 <div class="row">
     <div class="col-sm-4 col-lg-4">
 
@@ -6,13 +8,15 @@
     </div>
 </div>
 
+<hr/>
+
 <div class="row">
     <div ng-repeat="note in vm.top">
-
-        <div ng-include="'app/note/note.card.html'"></div>
-
+        <div ng-include="'app/public/note.card.html'"></div>
     </div>
 </div>
+
+<hr/>
 
 <div class="row">
     <div class="col-sm-4 col-lg-4">
@@ -20,10 +24,10 @@
     </div>
 </div>
 
+<hr/>
+
 <div class="row">
     <div ng-repeat="note in vm.topViewed">
-
-        <div ng-include="'app/note/note.card.html'"></div>
-
+        <div ng-include="'app/public/note.card.html'"></div>
     </div>
 </div>

@@ -37,7 +37,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="person in vm.persons">
-            <td>{{person.id}}</td>
+            <td>{{::person.id}}</td>
             <td>{{::person.firstName}} {{::person.midName}} {{::person.lastName}}</td>
             <td>{{::person.email}}</td>
             <td>

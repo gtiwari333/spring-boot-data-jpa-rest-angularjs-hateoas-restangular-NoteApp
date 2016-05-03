@@ -16,6 +16,7 @@
 
         NoteService.customGET("search/findTop6ByOrderByViewCountDesc").then(function (resp) {
             vm.topViewed = resp;
+
         });
         NoteService.customGET("search/findTop6ByOrderByIdDesc").then(function (resp) {
             vm.top = resp;

@@ -2,7 +2,7 @@
 
     <ol class="breadcrumb">
         <li><a ui-sref="public">Home</a></li>
-        <li><a  ui-sref="person.detail({id:vm.person.id})">Person : {{vm.person.firstName}} {{vm.person.midName}} {{vm.person.lastName}}</a></li>
+        <li><a  ui-sref="person.detail({id:vm.person.id})">Person : {{::vm.person.firstName}} {{::vm.person.midName}} {{::vm.person.lastName}}</a></li>
         <li class="active">
             <span class="form-header">Notes</span>
         </li>
@@ -39,7 +39,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="note in vm.notes">
-            <td>{{note.id}}</td>
+            <td>{{::note.id}}</td>
             <td>{{::note.title}} </td>
             <td>{{::note.content | limitTo : 35}}</td>
             <td>{{::note.createdDate | date : 'dd/MM/yyyy'}}</td>
