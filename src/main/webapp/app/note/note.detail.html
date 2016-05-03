@@ -52,7 +52,7 @@
                     <label class="font-normal">Created Date <span class="required">*</span></label>
 
                     <div class="input-group">
-                        <input type="text" ng-readonly="!vm.editable" ng-model="vm.note.createdDate  | date : 'dd/MM/yyyy'" class="form-control">
+                        <input type="text" ng-readonly="!vm.editable" ng-value="vm.note.createdDate  | date : 'dd/MM/yyyy'" class="form-control">
                     </div>
                 </div>
             </div>
