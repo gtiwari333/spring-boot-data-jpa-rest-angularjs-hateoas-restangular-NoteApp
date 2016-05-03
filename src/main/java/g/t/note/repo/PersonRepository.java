@@ -14,7 +14,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query(value = "SELECT p.*  FROM person p , note n WHERE p.id = n.person_id GROUP BY n.person_id ORDER BY COUNT(n.id) DESC LIMIT 5", nativeQuery = true)
     List<Person> findTop3PosterBasedOnPostCount();
 
-    @Query(value = "SELECT p.*  FROM person p , note n WHERE p.id = n.person_id GROUP BY n.person_id ORDER BY SUM(n.view_count) DESC LIMIT 5", nativeQuery = true)
+    @Query(value = "SELECT p.*  FROM person p , note n WHERE p.id = n.person_id and n.view_count > 0 GROUP BY n.person_id ORDER BY SUM(n.view_count) DESC LIMIT 5", nativeQuery = true)
     List<Person> findTop3PosterBasedOnPostViewCount();
 
 }
