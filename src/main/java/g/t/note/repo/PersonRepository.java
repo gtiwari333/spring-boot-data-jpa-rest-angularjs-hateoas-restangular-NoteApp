@@ -1,12 +1,11 @@
 package g.t.note.repo;
 
-import java.util.List;
-
+import g.t.note.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import g.t.note.entity.Person;
+import java.util.List;
 
 @RepositoryRestResource(path = "person")
 public interface PersonRepository extends JpaRepository<Person, Long> {

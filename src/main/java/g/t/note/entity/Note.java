@@ -6,7 +6,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -14,24 +13,22 @@ import java.util.Date;
 @Data
 public class Note {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    private String title;
-
-    private String content;
-
-    @CreatedDate
-    private Date createdDate = new Date();
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @NotNull
-    private Person person;
-
     @Transient
     @JsonSerialize
     Long personId;
+    @Transient
+    @JsonSerialize
+    String personName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String content;
+    @CreatedDate
+    private Date createdDate = new Date();
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Person person;
+    private Long viewCount = 0l;
 
     public Long getPersonId() {
         if (person == null) {
@@ -40,10 +37,6 @@ public class Note {
 
         return person.getId();
     }
-
-    @Transient
-    @JsonSerialize
-    String personName;
 
     public String getPersonName() {
         if (person == null) {
@@ -57,8 +50,6 @@ public class Note {
         }
 
     }
-
-    private Long viewCount = 0l;
 
     @Override
     public boolean equals(Object obj) {
